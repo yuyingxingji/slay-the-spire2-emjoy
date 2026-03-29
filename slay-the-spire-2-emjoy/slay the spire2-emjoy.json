@@ -1,0 +1,11 @@
+{
+  "id": "slay the spire2-emjoy",           
+  "name": "杀戮尖塔2多人联机表情包",
+  "author": "御影星寄",
+  "description": "可以让你在跟你的好友联机时发送表情包",
+  "version": "1.0",
+  "has_pck": true,         
+  "has_dll": true,        
+  "dependencies": [],     
+  "affects_gameplay": true 
+}
