@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "slay the spire2-emjoy", "slay the spire2-emjoy.csproj", "{E36819C9-D301-48B4-86E3-FD099A447F51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{E36819C9-D301-48B4-86E3-FD099A447F51}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
