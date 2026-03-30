@@ -21,7 +21,6 @@ namespace EmjoyMod
 
             float screenHeight = __instance.GetViewportRect().Size.Y;
 
-            // 按钮1：打开系统文件夹管理表情
             var btnManage = new Button
             {
                 Text = " 📂 管理表情包 ",
@@ -36,7 +35,6 @@ namespace EmjoyMod
                 GD.Print($"[Emjoy] 打开文件夹: {folder}");
             };
 
-            // 按钮2：快速导入图片（保持宽高比）
             var btnImport = new Button
             {
                 Text = " ➕ 导入图片 ",
@@ -58,7 +56,6 @@ namespace EmjoyMod
                     var img = new Image();
                     if (img.Load(path) == Error.Ok)
                     {
-                        // 等比例缩放，最大边长不超过256
                         int maxSize = 256;
                         int width = img.GetWidth();
                         int height = img.GetHeight();

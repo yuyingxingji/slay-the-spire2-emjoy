@@ -40,7 +40,6 @@ public static class DynamicEmoteManager
 {
     public static readonly string TempDir = "user://Emjoy_Temp/";
 
-    // 修复：补回 Init 方法
     public static void Init() {
         if (!DirAccess.DirExistsAbsolute(TempDir)) {
             DirAccess.MakeDirRecursiveAbsolute(TempDir);
@@ -48,7 +47,7 @@ public static class DynamicEmoteManager
         GD.Print("[Emjoy] 临时目录已初始化: " + TempDir);
     }
 
-public static Image? SafeLoadImage(string path) {
+    public static Image? SafeLoadImage(string path) {
     if (string.IsNullOrEmpty(path)) return null;
     
     string absolutePath = ProjectSettings.GlobalizePath(path);
@@ -105,8 +104,6 @@ public static Image? SafeLoadImage(string path) {
     }
 
     byte[] buffer = img.SavePngToBuffer();
-    // 其余代码...
-
 
         var msg = new DynamicEmoteMessage { 
             Data = buffer, 
