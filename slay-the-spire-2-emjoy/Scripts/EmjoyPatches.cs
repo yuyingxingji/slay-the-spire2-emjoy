@@ -21,20 +21,25 @@ public class CombatUiPatch {
         GD.Print("[Emjoy] 正在手动构建 UI 面板...");
 
         var toggleBtn = new Button();
-        toggleBtn.Text = "EMOTE";
+        toggleBtn.Text = "表情";
         toggleBtn.Modulate = new Color(0, 1, 0); // 亮绿色
         toggleBtn.CustomMinimumSize = new Vector2(100, 45);
         ui.AddChild(toggleBtn);
 
+        // 1. 设置按钮坐标（锚点设为右下角）
         toggleBtn.AnchorLeft = 1.0f;
         toggleBtn.AnchorTop = 1.0f;
         toggleBtn.AnchorRight = 1.0f;
         toggleBtn.AnchorBottom = 1.0f;
-        toggleBtn.OffsetLeft = -450;
-        toggleBtn.OffsetTop = -130;
-        toggleBtn.OffsetRight = -350;
-        toggleBtn.OffsetBottom = -80;
 
+        // 这里的 Offset 控制按钮在“结束回合”上方的具体位置
+        // 如果想更靠右，调大 OffsetLeft/Right 的负数（如-150），调小则靠左。
+        toggleBtn.OffsetLeft = -250; 
+        toggleBtn.OffsetTop = -300; // 调大这个负值（如-350）可以把按钮放得更高
+        toggleBtn.OffsetRight = -150;
+        toggleBtn.OffsetBottom = -255;
+
+        // 2. 面板初始化
         _pickerPanel = new PanelContainer();
         _pickerPanel.CustomMinimumSize = new Vector2(400, 300);
         _pickerPanel.TopLevel = true;
@@ -57,7 +62,7 @@ public class CombatUiPatch {
         vbox.AddChild(title);
 
         _emoteGrid = new GridContainer();
-        _emoteGrid.Columns = 5;
+        _emoteGrid.Columns = 4;
         _emoteGrid.AddThemeConstantOverride("h_separation", 10);
         _emoteGrid.AddThemeConstantOverride("v_separation", 10);
         
@@ -68,11 +73,23 @@ public class CombatUiPatch {
 
         RefreshEmotes();
 
+        // 3. 实现向左弹出逻辑
         toggleBtn.Pressed += () => {
             _pickerPanel.Visible = !_pickerPanel.Visible;
             if (_pickerPanel.Visible) {
-                _pickerPanel.GlobalPosition = toggleBtn.GlobalPosition + new Vector2(-200, -350);
-                GD.Print("[Emjoy] 面板已打开，位置: " + _pickerPanel.GlobalPosition);
+                // 向左弹出的核心计算：
+                // X轴 = 按钮位置 - 面板宽度 - 间隙
+                // Y轴 = 按钮位置 - 面板高度 + 按钮高度 (让底边对齐按钮)
+                Vector2 btnPos = toggleBtn.GlobalPosition;
+                float panelW = _pickerPanel.CustomMinimumSize.X;
+                float panelH = _pickerPanel.CustomMinimumSize.Y;
+                
+                _pickerPanel.GlobalPosition = new Vector2(
+                    btnPos.X - panelW - 20, // 减去宽度实现向左移，20是间隙
+                    btnPos.Y - (panelH - toggleBtn.Size.Y) // 向上移动使面板与按钮底部大致对齐
+                );
+                
+                GD.Print("[Emjoy] 面板已向左打开");
             }
         };
 
@@ -121,5 +138,4 @@ public class CombatUiPatch {
     GD.Print($"[Emjoy] 成功加载 {_emoteGrid.GetChildCount()} 个表情。");
 }
 }
-
 

@@ -79,12 +79,34 @@ public static Image? SafeLoadImage(string path) {
     }
 }
 
-    public static void SendEmote(string localPath) {
-        var img = SafeLoadImage(localPath);
-        if (img == null) return;
+    public static void SendEmote(string localPath)
+{
+    var img = SafeLoadImage(localPath);
+    if (img == null) return;
 
-        if (img.GetWidth() > 200) img.Resize(200, 200);
-        byte[] buffer = img.SavePngToBuffer();
+    // 等比例缩放，最大边长不超过 256
+    int maxSize = 256;
+    int width = img.GetWidth();
+    int height = img.GetHeight();
+    if (width > maxSize || height > maxSize)
+    {
+        float ratio = (float)width / height;
+        if (width > height)
+        {
+            width = maxSize;
+            height = (int)(width / ratio);
+        }
+        else
+        {
+            height = maxSize;
+            width = (int)(height * ratio);
+        }
+        img.Resize(width, height, Image.Interpolation.Lanczos);
+    }
+
+    byte[] buffer = img.SavePngToBuffer();
+    // 其余代码...
+
 
         var msg = new DynamicEmoteMessage { 
             Data = buffer, 
@@ -123,7 +145,7 @@ private static void ShowBubble(string path, ulong senderId, bool isLocalPath) {
         if (img == null) return;
         var tex = ImageTexture.CreateFromImage(img);
 
-        float targetHeight = 120f; 
+        float targetHeight = 220f; 
         float aspectRatio = (float)tex.GetWidth() / tex.GetHeight();
         float targetWidth = targetHeight * aspectRatio;
 
@@ -140,7 +162,7 @@ private static void ShowBubble(string path, ulong senderId, bool isLocalPath) {
         float charHeight = playerNode.Hitbox.Size.Y;
 
         float posX = (charWidth * 0.4f) + 20f; 
-        float posY = -charHeight * 0.9f;
+        float posY = -charHeight * 1.2f;
 
         rect.Position = new Vector2(posX, posY);
 

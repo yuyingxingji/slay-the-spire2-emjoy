@@ -6,6 +6,7 @@ D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.GeneratedMSBuil
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.AssemblyInfoInputs.cache
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.AssemblyInfo.cs
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.csproj.CoreCompileInputs.cache
+D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.sourcelink.json
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.dll
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\refint\slay the spire2-emjoy.dll
 D:\slay-the-spire-2-emjoy\obj\Debug\net9.0\slay the spire2-emjoy.pdb

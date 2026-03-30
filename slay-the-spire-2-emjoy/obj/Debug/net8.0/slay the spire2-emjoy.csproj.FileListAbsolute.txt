@@ -1,0 +1,6 @@
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.csproj.AssemblyReference.cache
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.GeneratedMSBuildEditorConfig.editorconfig
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.AssemblyInfoInputs.cache
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.AssemblyInfo.cs
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.csproj.CoreCompileInputs.cache
+D:\slay-the-spire-2-emjoy\obj\Debug\net8.0\slay the spire2-emjoy.sourcelink.json
